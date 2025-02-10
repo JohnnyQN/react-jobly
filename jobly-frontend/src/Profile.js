@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import JoblyApi from "./api";
 
 /** Profile Component: Displays and allows editing of user profile */
 function Profile({ currentUser }) {
-    const navigate = useNavigate();
     const INITIAL_STATE = {
       firstName: currentUser?.firstName || "",
       lastName: currentUser?.lastName || "",
@@ -29,7 +27,7 @@ function Profile({ currentUser }) {
         if (!updatedData.password.trim()) delete updatedData.password;
       
         try {
-          const updatedUser = await JoblyApi.updateUser(currentUser.username, updatedData);
+          await JoblyApi.updateUser(currentUser.username, updatedData);
           setSuccess(true);
           setErrors([]);
         } catch (err) {
@@ -54,4 +52,4 @@ function Profile({ currentUser }) {
     );
   }
   
-  export default Profile;
+export default Profile;

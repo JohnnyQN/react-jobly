@@ -12,11 +12,14 @@ function LoginForm({ login }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    let result = await login(formData);
-    if (result.success) {
-      navigate("/");
-    } else {
-      setErrors(result.errors);
+    try {
+      let token = await login(formData);
+      if (token) {
+        navigate("/");
+      }
+    } catch (err) {
+      console.error("Login failed:", err);
+      setErrors(["Invalid username or password. Please try again."]);
     }
   }
 
@@ -24,11 +27,24 @@ function LoginForm({ login }) {
     <div>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
-        <input name="username" value={formData.username} onChange={handleChange} placeholder="Username" />
-        <input name="password" type="password" value={formData.password} onChange={handleChange} placeholder="Password" />
+        <input
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
+          placeholder="Username"
+          required
+        />
+        <input
+          name="password"
+          type="password"
+          value={formData.password}
+          onChange={handleChange}
+          placeholder="Password"
+          required
+        />
         <button type="submit">Login</button>
       </form>
-      {errors.length > 0 && <p>{errors.join(", ")}</p>}
+      {errors.length > 0 && <p style={{ color: "red" }}>{errors.join(", ")}</p>}
     </div>
   );
 }

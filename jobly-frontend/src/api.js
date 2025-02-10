@@ -53,8 +53,13 @@ class JoblyApi {
 
   // Login user and return token
   static async login(credentials) {
-    let res = await this.request("auth/token", credentials, "post");
-    return res.token;
+    try {
+      let res = await this.request("auth/token", credentials, "post");
+      return res.token;
+    } catch (err) {
+      console.error("Login error:", err);
+      throw new Error("Invalid username or password. Please try again.");
+    }
   }
 
   // Signup user and return token

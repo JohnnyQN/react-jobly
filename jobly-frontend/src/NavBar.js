@@ -1,21 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./NavBar.css";  
 
 function NavBar({ currentUser, logout }) {
   return (
-    <nav>
-      <Link to="/">Home</Link>
+    <nav className="navbar">
+      <Link to="/" className="nav-links">Home</Link>
       {currentUser ? (
         <>
-          <Link to="/companies">Companies</Link>
-          <Link to="/jobs">Jobs</Link>
-          <Link to="/profile">{currentUser.username}</Link>
-          <button onClick={logout}>Logout</button>
+          <Link to="/companies" className="nav-links">Companies</Link>
+          <Link to="/jobs" className="nav-links">Jobs</Link>
+          <Link to="/profile" className="nav-links">{currentUser.username}</Link>
+          <button onClick={logout} className="nav-links logout-btn">Logout</button>
         </>
       ) : (
         <>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
+          <Link to="/login" className="nav-links">Login</Link>
+          <Link to="/signup" className="nav-links">Sign Up</Link>
         </>
       )}
     </nav>

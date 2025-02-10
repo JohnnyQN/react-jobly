@@ -13,6 +13,7 @@ const companiesRoutes = require("./routes/companies");
 const usersRoutes = require("./routes/users");
 const jobsRoutes = require("./routes/jobs");
 
+const migrateRoutes = require("./routes/migrate"); 
 const morgan = require("morgan");
 
 const app = express();
@@ -25,6 +26,9 @@ app.use(morgan("tiny"));
 app.get("/", (req, res) => {
   res.json({ message: "Jobly API is running!" });
 });
+
+// Temporary database migration route (Remove after running!)
+app.use("/migrate", migrateRoutes);
 
 // Only apply JWT authentication middleware to protected routes
 app.use(authenticateJWT);

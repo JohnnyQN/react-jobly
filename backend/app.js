@@ -18,7 +18,13 @@ const morgan = require("morgan");
 
 const app = express();
 
-app.use(cors());
+// Allow frontend requests
+app.use(cors({
+  origin: "https://react-jobly-frontend-r0jc.onrender.com",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders: "Content-Type, Authorization"
+}));
+
 app.use(express.json());
 app.use(morgan("tiny"));
 
@@ -27,7 +33,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Jobly API is running!" });
 });
 
-// Only apply JWT authentication middleware to protected routes
+// Apply JWT authentication middleware to protected routes
 app.use(authenticateJWT);
 
 app.use("/auth", authRoutes);
@@ -36,12 +42,12 @@ app.use("/users", usersRoutes);
 app.use("/jobs", jobsRoutes);
 app.use("/migrate", migrateRoutes);
 
-/** Handle 404 errors -- this matches everything */
+/** Handle 404 errors */
 app.use(function (req, res, next) {
   return next(new NotFoundError());
 });
 
-/** Generic error handler; anything unhandled goes here. */
+/** Generic error handler */
 app.use(function (err, req, res, next) {
   if (process.env.NODE_ENV !== "test") console.error(err.stack);
   const status = err.status || 500;

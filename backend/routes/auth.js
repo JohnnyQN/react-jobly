@@ -20,24 +20,35 @@ const router = new express.Router();
  */
 router.post("/token", async function (req, res, next) {
   try {
+    console.log("Login attempt:", req.body);
+
     const validator = jsonschema.validate(req.body, userAuthSchema);
     if (!validator.valid) {
       const errs = validator.errors.map(e => e.stack);
+      console.error("Validation failed:", errs);
       throw new BadRequestError(errs);
     }
 
     const { username, password } = req.body;
     const user = await User.authenticate(username, password);
+
+    if (!user) {
+      console.error("Authentication failed for user:", username);
+      throw new BadRequestError("Invalid username/password");
+    }
+
     const token = createToken(user);
     return res.json({ token });
+
   } catch (err) {
+    console.error("Login error:", err);
     return next(err);
   }
 });
 
 /** POST /auth/register:   { user } => { token }
  *
- * User must include { username, password, firstName, lastName, email }
+ * user must include { username, password, firstName, lastName, email }
  *
  * Returns JWT token which can be used to authenticate further requests.
  *
@@ -50,12 +61,15 @@ router.post("/register", async function (req, res, next) {
     const validator = jsonschema.validate(req.body, userRegisterSchema);
     if (!validator.valid) {
       const errs = validator.errors.map(e => e.stack);
+      console.error("Validation error:", errs);
       throw new BadRequestError(errs);
     }
 
     const newUser = await User.register({ ...req.body, isAdmin: false });
     const token = createToken(newUser);
+
     return res.status(201).json({ token });
+
   } catch (err) {
     console.error("Registration error:", err);
     return next(err);

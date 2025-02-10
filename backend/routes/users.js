@@ -14,6 +14,10 @@ const userUpdateSchema = require("../schemas/userUpdate.json");
 
 const router = express.Router();
 
+/** Test route to check if users API is working */
+router.get("/test", (req, res) => {
+  res.json({ message: "Users route is working!" });
+});
 
 /** POST / { user }  => { user, token }
  *
@@ -59,7 +63,6 @@ router.get("/", ensureAdmin, async function (req, res, next) {
     return next(err);
   }
 });
-
 
 /** GET /[username] => { user }
  *

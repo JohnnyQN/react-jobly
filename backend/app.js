@@ -22,7 +22,8 @@ const app = express();
 app.use(cors({
   origin: "https://react-jobly-frontend-r0jc.onrender.com",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: "Content-Type, Authorization"
+  allowedHeaders: "Content-Type, Authorization",
+  credentials: true
 }));
 
 app.use(express.json());

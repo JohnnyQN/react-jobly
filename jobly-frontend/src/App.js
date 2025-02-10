@@ -42,7 +42,8 @@ function App() {
       localStorage.setItem("token", newToken);
       return { success: true };
     } catch (err) {
-      return { success: false, errors: err };
+      // Return an object with success:false and the error message(s)
+      return { success: false, errors: [err.message] };
     }
   }
 

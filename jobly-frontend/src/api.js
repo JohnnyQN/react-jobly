@@ -10,23 +10,22 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "https://react-jobly-backend-
  *
  */
 class JoblyApi {
-  static token;  // JWT token for requests
-
-  static async request(endpoint, data = {}, method = "get") {
-    console.debug("API Call:", endpoint, data, method);
-
-    const url = `${BASE_URL}/${endpoint}`;
-    const headers = JoblyApi.token ? { Authorization: `Bearer ${JoblyApi.token}` } : {};
-    const params = method === "get" ? data : {};
-
-    try {
-      return (await axios({ url, method, data, params, headers })).data;
-    } catch (err) {
-      console.error("API Error:", err.response);
-      let message = err.response?.data?.error?.message || "API request failed";
-      throw Array.isArray(message) ? message : [message];
+    static token; // JWT token for requests
+  
+    static async request(endpoint, data = {}, method = "get") {
+      console.debug("API Call:", endpoint, data, method);
+      const url = `${BASE_URL}/${endpoint}`;
+      const headers = JoblyApi.token ? { Authorization: `Bearer ${JoblyApi.token}` } : {};
+      const params = method === "get" ? data : {};
+  
+      try {
+        return (await axios({ url, method, data, params, headers })).data;
+      } catch (err) {
+        console.error("API Error:", err.response);
+        let message = err.response?.data?.error?.message || "API request failed";
+        throw Array.isArray(message) ? message : [message];
+      }
     }
-  }
 
   // Fetch all companies (with optional search term)
   static async getCompanies(name) {
@@ -55,10 +54,10 @@ class JoblyApi {
   static async login(credentials) {
     try {
       let res = await this.request("auth/token", credentials, "post");
-      return res.token; 
+      return res.token;
     } catch (err) {
       console.error("Login error:", err.response?.data?.error?.message || "Login failed.");
-      return null; 
+      throw new Error("Invalid username or password.");
     }
   }
 

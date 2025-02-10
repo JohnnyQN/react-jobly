@@ -12,18 +12,14 @@ function LoginForm({ login }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    setErrors([]); 
-  
-    try {
-      let token = await login(formData);
-      if (token) {
-        navigate("/"); 
-      } else {
-        setErrors(["Invalid username or password."]);
-      }
-    } catch (err) {
-      console.error("Login failed:", err);
-      setErrors(["Invalid username or password."]);
+    setErrors([]);
+    
+    // Call login and check the returned object.
+    const result = await login(formData);
+    if (result.success) {
+      navigate("/");
+    } else {
+      setErrors(result.errors);
     }
   }
 
@@ -50,11 +46,11 @@ function LoginForm({ login }) {
       </form>
       {errors.length > 0 && (
         <div className="alert alert-danger">
-            {errors.map((error, idx) => (
+          {errors.map((error, idx) => (
             <p key={idx}>{error}</p>
-            ))}
+          ))}
         </div>
-)}
+      )}
     </div>
   );
 }

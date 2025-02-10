@@ -12,6 +12,8 @@ function LoginForm({ login }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
+    setErrors([]); 
+  
     try {
       let token = await login(formData);
       if (token) {
@@ -19,9 +21,10 @@ function LoginForm({ login }) {
       }
     } catch (err) {
       console.error("Login failed:", err);
-      setErrors(["Invalid username or password. Please try again."]);
+      setErrors(Array.isArray(err) ? err : ["Invalid username or password."]);
     }
   }
+  
 
   return (
     <div>
@@ -44,7 +47,13 @@ function LoginForm({ login }) {
         />
         <button type="submit">Login</button>
       </form>
-      {errors.length > 0 && <p style={{ color: "red" }}>{errors.join(", ")}</p>}
+      {errors.length > 0 && (
+        <div className="alert alert-danger">
+            {errors.map((error, idx) => (
+            <p key={idx}>{error}</p>
+            ))}
+        </div>
+)}
     </div>
   );
 }

@@ -1,19 +1,27 @@
 .auth-container {
     width: 100vw;
-    max-width: 1400px; 
     margin: 0 auto;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+  }
+  
+  .auth-form {
 
-.auth-form {
-    width: 85vw;  
-    max-width: 1300px; 
+    width: 90vw;
+    max-width: 1300px;  
     text-align: center;
     padding: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+  }
+  
+  .cards-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }

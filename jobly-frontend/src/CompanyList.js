@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import JoblyApi from "./api"; 
-import SearchForm from "./SearchForm";
 import CompanyCard from "./CompanyCard";
-import "./Auth.css"; 
+import "./CompanyList.css"; 
 
 function CompanyList() {
   const [companies, setCompanies] = useState([]);
@@ -51,12 +50,15 @@ function CompanyList() {
           />
           <button type="submit">Search</button>
         </form>
-
-        {companies.length ? (
-          companies.map((company) => <CompanyCard key={company.handle} {...company} />)
-        ) : (
-          <p>No companies found.</p>
-        )}
+        <div className="cards-container">
+          {companies.length ? (
+            companies.map((company) => (
+              <CompanyCard key={company.handle} {...company} />
+            ))
+          ) : (
+            <p>No companies found.</p>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import JoblyApi from "./api";
 import JobCard from "./JobCard";
-import SearchForm from "./SearchForm";
-import "./Auth.css"; 
+import "./JobList.css"; 
 
 function JobList() {
   const [jobs, setJobs] = useState([]);
@@ -51,12 +50,13 @@ function JobList() {
           />
           <button type="submit">Search</button>
         </form>
-
-        {jobs.length ? (
-          jobs.map((job) => <JobCard key={job.id} {...job} />)
-        ) : (
-          <p>No jobs found.</p>
-        )}
+        <div className="cards-container">
+          {jobs.length ? (
+            jobs.map((job) => <JobCard key={job.id} {...job} />)
+          ) : (
+            <p>No jobs found.</p>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -4,14 +4,15 @@
     align-items: center;
     min-height: 100vh;
     background: url('https://img.freepik.com/free-vector/realistic-background-futuristic-style_23-2149129125.jpg?t=st=1739241742~exp=1739245342~hmac=09f0e68c4001be5099e0240ff00fb6545416f3b7e28b51e0206d2fb78ca4f1b3&w=1380') no-repeat center center/cover;
+    background-size: cover;
   }
   
   .auth-form {
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
+    max-width: 500px;
     width: 100%;
     text-align: center;
   }

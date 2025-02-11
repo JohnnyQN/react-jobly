@@ -1,13 +1,12 @@
 
 body {
-  background-color: #F8F8F8;
+  background: url('https://img.freepik.com/free-vector/realistic-background-futuristic-style_23-2149129125.jpg?t=st=1739241742~exp=1739245342~hmac=09f0e68c4001be5099e0240ff00fb6545416f3b7e28b51e0206d2fb78ca4f1b3&w=1380') no-repeat center center/cover;
+  background-size: cover;
+  min-height: 100vh;
   margin: 0;
-  padding: 0 0 30px 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
 code {

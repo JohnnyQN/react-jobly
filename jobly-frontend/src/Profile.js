@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import JoblyApi from "./api";
+import "./Auth.css"; 
 
 /** Profile Component: Displays and allows editing of user profile */
 function Profile({ currentUser }) {

@@ -3,6 +3,7 @@ import JoblyApi from "./api";
 import { Link } from "react-router-dom";
 import SearchForm from "./SearchForm";
 import CompanyCard from "./CompanyCard";
+import "./Auth.css"; 
 
 /** Show list of companies with search functionality. */
 function CompanyList() {

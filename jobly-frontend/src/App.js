@@ -11,6 +11,7 @@ import Profile from "./Profile";
 import JoblyApi from "./api";
 import { jwtDecode } from "jwt-decode";
 import UserContext from "./UserContext.js";
+import LoadingSpinner from "./LoadingSpinner";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token") || null);

@@ -1,0 +1,55 @@
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('https://img.freepik.com/free-vector/realistic-background-futuristic-style_23-2149129125.jpg?t=st=1739241742~exp=1739245342~hmac=09f0e68c4001be5099e0240ff00fb6545416f3b7e28b51e0206d2fb78ca4f1b3&w=1380') no-repeat center center/cover;
+  }
+  
+  .auth-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .auth-form h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .auth-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .auth-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 4px;
+  }
+  
+  .auth-form button:hover {
+    background: #444;
+  }
+  
+  .alert {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
+  

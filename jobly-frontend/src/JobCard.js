@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import JoblyApi from "./api";
 import UserContext from "./UserContext";
+import "./JobCard.css";
 
 function JobCard({ id, title, salary, equity }) {
   const { currentUser } = useContext(UserContext);

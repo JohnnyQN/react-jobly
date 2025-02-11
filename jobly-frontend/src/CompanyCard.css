@@ -1,16 +1,9 @@
 .CompanyCard {
-<<<<<<< HEAD
-    background: rgba(255, 255, 255, 0.9); 
-    max-width: 1500px;  
-    margin: 20px auto; 
-    padding: 20px;
-=======
     background: rgba(255, 255, 255, 0.9);
-    width: 1800px;  
-    max-width: 90%;  
+    width: 90vw; 
+    max-width: 1800px; 
     margin: 20px auto;
     padding: 30px; 
->>>>>>> c7b7b77 (Updated CompanyCard and JobCard width)
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
@@ -35,9 +28,4 @@
 .CompanyCard:hover {
     text-decoration: none;
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
-<<<<<<< HEAD
-  }
-  
-=======
 }
->>>>>>> c7b7b77 (Updated CompanyCard and JobCard width)

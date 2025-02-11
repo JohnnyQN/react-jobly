@@ -1,11 +1,7 @@
 .JobCard {
     background: rgba(255, 255, 255, 0.9);
-<<<<<<< HEAD
-    max-width: 1000px;
-=======
-    width: 1200px; 
-    max-width: 80%; 
->>>>>>> c7b7b77 (Updated CompanyCard and JobCard width)
+    width: 90vw;
+    max-width: 1200px;
     margin: 20px auto;
     padding: 25px;
     border-radius: 8px;
@@ -35,9 +31,4 @@
 
 .JobCard button:hover {
     background-color: #444;
-<<<<<<< HEAD
-  }
-  
-=======
 }
->>>>>>> c7b7b77 (Updated CompanyCard and JobCard width)

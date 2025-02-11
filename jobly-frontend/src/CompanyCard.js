@@ -22,17 +22,15 @@ import "./CompanyCard.css";
  * />
  */
 function CompanyCard({ handle, name, description, logoUrl }) {
-  return (
-    <Link className="CompanyCard card" to={`/companies/${handle}`}>
-      <div className="card-body">
-        <h5 className="card-title">
+    return (
+      <Link className="CompanyCard card" to={`/companies/${handle}`}>
+        <div className="card-body">
           {logoUrl && <img src={logoUrl} alt={name} className="CompanyCard-logo" />}
-          {name}
-        </h5>
-        <p className="card-text">{description}</p>
-      </div>
-    </Link>
-  );
-}
-
-export default CompanyCard;
+          <h5 className="card-title">{name}</h5> 
+          <p className="card-text">{description}</p>
+        </div>
+      </Link>
+    );
+  }
+  
+  export default CompanyCard;

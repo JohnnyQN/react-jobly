@@ -1,18 +1,29 @@
 .CompanyCard {
-    max-height: 250px;
-    margin-bottom: 1rem;
-    color: inherit;
-    border-radius: 0;
-    border: none;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    background: rgba(255, 255, 255, 0.9); 
+    max-width: 600px;  
+    margin: 20px auto; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    text-decoration: none; 
+  }
+  
+  .CompanyCard h5 {
+    color: #333;
+  }
+  
+  .CompanyCard p {
+    color: #555;
   }
   
   .CompanyCard img {
-    width: 50px;
+    max-width: 60px; 
+    margin-bottom: 10px;
   }
   
   .CompanyCard:hover {
     text-decoration: none;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
   }
   

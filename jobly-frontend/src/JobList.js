@@ -39,23 +39,25 @@ function JobList() {
   if (isLoading) return <p>Loading jobs...</p>;
 
   return (
-    <div className="JobList">
-      <h1>Jobs</h1>
-      <form onSubmit={handleSearch}>
-        <input
-          type="text"
-          placeholder="Search for a job..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <button type="submit">Search</button>
-      </form>
+    <div className="auth-container">
+      <div className="auth-form">
+        <h1>Jobs</h1>
+        <form onSubmit={handleSearch}>
+          <input
+            type="text"
+            placeholder="Search for a job..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <button type="submit">Search</button>
+        </form>
 
-      {jobs.length ? (
-        jobs.map((job) => <JobCard key={job.id} id={job.id} title={job.title} salary={job.salary} equity={job.equity} />)
-      ) : (
-        <p>No jobs found.</p>
-      )}
+        {jobs.length ? (
+          jobs.map((job) => <JobCard key={job.id} {...job} />)
+        ) : (
+          <p>No jobs found.</p>
+        )}
+      </div>
     </div>
   );
 }

@@ -1,9 +1,31 @@
 .JobCard {
-    max-height: 250px;
-    margin-bottom: 1rem;
-    color: inherit;
-    border-radius: 0;
+    background: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .JobCard h3 {
+    color: #333;
+  }
+  
+  .JobCard p {
+    color: #555;
+  }
+  
+  .JobCard button {
+    background-color: black;
+    color: white;
+    padding: 8px 16px;
     border: none;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .JobCard button:hover {
+    background-color: #444;
   }
   

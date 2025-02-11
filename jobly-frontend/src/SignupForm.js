@@ -30,17 +30,37 @@ function SignupForm({ signup }) {
   }
 
   return (
-    <div className="SignupForm">
-      <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
-        <input name="username" placeholder="Username" onChange={handleChange} required />
-        <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
-        <input name="firstName" placeholder="First Name" onChange={handleChange} required />
-        <input name="lastName" placeholder="Last Name" onChange={handleChange} required />
-        <input name="email" type="email" placeholder="Email" onChange={handleChange} required />
-        <button type="submit">Sign Up</button>
-      </form>
-      {errors.length > 0 && <p>{errors.join(", ")}</p>}
+    <div className="container auth-container">
+      <div className="auth-form card p-4 shadow-sm">
+        <h2 className="text-center">Sign Up</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <input className="form-control" name="username" placeholder="Username" onChange={handleChange} required />
+          </div>
+          <div className="form-group">
+            <input className="form-control" name="password" type="password" placeholder="Password" onChange={handleChange} required />
+          </div>
+          <div className="form-group">
+            <input className="form-control" name="firstName" placeholder="First Name" onChange={handleChange} required />
+          </div>
+          <div className="form-group">
+            <input className="form-control" name="lastName" placeholder="Last Name" onChange={handleChange} required />
+          </div>
+          <div className="form-group">
+            <input className="form-control" name="email" type="email" placeholder="Email" onChange={handleChange} required />
+          </div>
+          <button className="btn btn-success btn-block mt-3" type="submit">
+            Sign Up
+          </button>
+        </form>
+        {errors.length > 0 && (
+          <div className="alert alert-danger mt-3">
+            {errors.map((error, idx) => (
+              <p key={idx}>{error}</p>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

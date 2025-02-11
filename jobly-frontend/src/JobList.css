@@ -9,7 +9,7 @@
 }
 
 .auth-form {
-    width: 100%;
+    width: 85vw;  
     max-width: 1300px; 
     text-align: center;
     padding: 30px;

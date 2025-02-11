@@ -1,6 +1,6 @@
 .auth-container {
-    width: 95vw;
-    max-width: 1300px;
+    width: 90vw;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     display: flex;
@@ -10,7 +10,10 @@
 
 .auth-form {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1100px;
     text-align: center;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
